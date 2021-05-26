@@ -11,7 +11,7 @@ module.exports = {
     }
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
-    const registeredUser = await db.user.create_user([username, hash, profile_pic]);
+    const registeredUser = await db.user.create_user([username, hash]);
     const user = registeredUser[0];
     req.session.user = {id: user.id, username: user.username};
     return res.status(201).send(req.session.user);
@@ -30,7 +30,7 @@ module.exports = {
     if (!isAuthenticated) {
       return res.status(401).send('Incorrect password')
     }
-    req.session.user = {id: user.id, username: user.username};
+    req.session.user = {id: user.user_id, username: user.username};
     return res.send(req.session.user);
   },
 

@@ -33,7 +33,7 @@ massive({
 app.post('/api/auth/register', authCtrl.register);
 app.post('/api/auth/login', authCtrl.login);
 app.get('/api/auth/me', authCtrl.getUser);
-app.post('/api/auth/logout', authCtrl.logout);
+app.post('/api/auth/logout', authCtrl.logout);  
 
 app.get('/api/home/activities', homeCtrl.getActivities);
 app.post('/api/home/createActivity', homeCtrl.createActivity);
@@ -45,6 +45,6 @@ app.delete('/api/single/deleteActivity/:id', singleCtrl.deleteActivity);
 
 app.get('/api/completion/getCompleted', compCtrl.getCompleted);
 app.post('/api/completion/createCompleted', compCtrl.createCompleted);
-app.delete('/api/completion/removeCompleted', compCtrl.removeCompleted);
+app.delete('/api/completion/removeCompleted/:id', compCtrl.removeCompleted);
 
 app.listen(SERVER_PORT, _ => console.log(`Running on ${SERVER_PORT}`));

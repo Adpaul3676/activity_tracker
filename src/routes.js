@@ -10,7 +10,6 @@ export default (
     <Route component={Landing} exact path="/"></Route>
     <Route component={Auth} path="/auth"></Route>
     <Route component={Home} path="/home"></Route>
-    <Route component={Activites} path="/activities"></Route>
+    <Route component={Activities} path="/activities/:id"></Route>
   </Switch>
-
 )

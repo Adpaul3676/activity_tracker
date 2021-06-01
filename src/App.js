@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import routes from './routes';
-import Nav from './Components/Nav/Nav';
+import Nav from './components/nav/nav';
 
 function App() {
   return (

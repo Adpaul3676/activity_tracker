@@ -1,6 +1,7 @@
 module.exports = {
   getActivities: async (req, res) => {
     const db = req.app.get('db');
+    // console.log(req.session);
     const userID = req.session.user.id
     const foundActivities = await db.homeScreen.getActivities([userID]);
     return res.status(200).send(foundActivities);

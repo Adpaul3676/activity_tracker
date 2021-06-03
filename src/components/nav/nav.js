@@ -10,10 +10,11 @@ class Nav extends Component {
   constructor(props) {
     super(props);
 
-    
+    this.logout = this.logout.bind(this);
   }
 
   logout () {
+    console.log(this.props)
     axios.post("/api/auth/logout")
     .then(res => {
       this.props.logout();
@@ -41,9 +42,9 @@ class Nav extends Component {
         <Link to="/home">
           <p>Home</p>
         </Link>
-        {/* <Link to="/"> */}
+        <Link to="/">
           <p onClick={this.logout}>Logout</p>
-        {/* </Link> */}
+        </Link>
       </div>
       <div className='navUserDisplay'>
         <p>{this.props.username}</p>

@@ -22,6 +22,7 @@ module.exports = {
     const {username, password} = req.body;
     const foundUser = await db.user.find_user_by_username([username]);
     const user = foundUser[0];
+    console.log(foundUser)
     if (!user) {
       return res.status(401).send('User not found. Please register as a new user before logging in')
     }

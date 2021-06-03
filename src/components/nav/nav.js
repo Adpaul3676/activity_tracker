@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import './nav.css';
 import {connect} from 'react-redux';
 import {logout} from '../../redux/reducer';
+import {withRouter} from "react-router";
 
 class Nav extends Component {
   constructor(props) {
@@ -14,7 +15,10 @@ class Nav extends Component {
 
   logout () {
     axios.post("/api/auth/logout")
-    .then(res => this.props.logout())
+    .then(res => {
+      this.props.logout();
+      this.props.history.push("/")
+    })
   }
 
   render () {
@@ -37,9 +41,9 @@ class Nav extends Component {
         <Link to="/home">
           <p>Home</p>
         </Link>
-        <Link to="/">
-          <p onClick={this.logout()}>Logout</p>
-        </Link>
+        {/* <Link to="/"> */}
+          <p onClick={this.logout}>Logout</p>
+        {/* </Link> */}
       </div>
       <div className='navUserDisplay'>
         <p>{this.props.username}</p>
@@ -67,4 +71,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps, {logout})(Nav);
+export default withRouter(connect(mapStateToProps, {logout})(Nav));

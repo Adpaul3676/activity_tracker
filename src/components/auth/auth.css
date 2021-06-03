@@ -1,0 +1,25 @@
+.authContainer {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.authBG {
+  width: 100vw;
+  height: 85vh;
+  position: absolute;
+  background-image: linear-gradient( #84CEEB, #5AB9EA, #C1C8E4);
+  display: flex;
+  justify-content: center;
+}
+
+.authLoginFrame {
+  background-color: grey;
+  width: 400px;
+  height: 350px;
+  position: relative;
+  top: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

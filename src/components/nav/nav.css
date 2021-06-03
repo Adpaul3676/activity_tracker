@@ -1,5 +1,57 @@
 .nav {
   width: 100vw;
-  height: 150px;
+  height: 15vh;
   background-color: aliceblue;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Text work and sizing for the Title text */
+
+.titleText {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.habitTitleText {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.titleBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  right: 150px;
+}
+
+.navToggleBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  height: 100%;
+  /* background-color: crimson; */
+  position: relative;
+  left: 190px;
+}
+
+.navRightBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  position: relative;
+  left: 80px;
+  /* background-color: cyan; */
+}
+
+.navButtons {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
 }

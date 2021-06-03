@@ -16,6 +16,8 @@ class Home extends Component {
       showFiltered: false,
       accArr: []
     }
+
+    this.filterActivities = this.filterActivities.bind(this);
   }
 
   handleChange(prop, val) {
@@ -34,11 +36,11 @@ class Home extends Component {
   filterActivities(input) {
     this.setState({showFiltered: !this.state.showFiltered})
     let filtered = this.state.accArr.filter((e) => {
-      if (e.title.includes(input) === true) {
+      if (e.title.toUpperCase().includes(input.toUpperCase()) === true) {
         return (e)  
       }
     })
-    this.setState({filteredNotesArray: filtered})
+    this.setState({filteredAct: filtered})
     this.setState({userInput: ''})
   }
 
@@ -46,19 +48,38 @@ class Home extends Component {
 
     let accArr = this.state.accArr.map((e) => {
       if (this.state.showFiltered === false) {
+        // console.log(e.activity_id)
         return (
-        <button className='specificButtons' key={e.id} onClick={() => this.props.updateActivity(e)}>
-        {e.title}
-        </button>
+          <Link className="homeActivityBlock"to={`/activities/:${e.activity_id}`}>
+            <button className='specificButtons' key={e.activity_id} onClick={() => this.props.updateActivity(e)}>
+            {e.title}
+            </button>
+            <button className="DayOfTheWeek"></button>
+            <button className="DayOfTheWeek"></button>
+            <button className="DayOfTheWeek"></button>
+            <button className="DayOfTheWeek"></button>
+            <button className="DayOfTheWeek"></button>
+            <button className="DayOfTheWeek"></button>
+            <button className="DayOfTheWeek"></button>
+          </Link>
       )}
     })
 
     let filteredAccArr = this.state.filteredAct.map((e) => {
       if (this.state.showFiltered === true) {
         return (
-        <button className='specificButtons' key={e.id} onClick={() => this.props.updateActivity(e)}>
-        {e.title}
-        </button>
+          <Link className="homeActivityBlock" to={`/activities/:${e.activity_id}`}>
+            <button className='specificButtons' key={e.activity_id} onClick={() => this.props.updateActivity(e)}>
+            {e.title}
+            </button>
+            <button className="DayOfTheWeek"></button>
+            <button className="DayOfTheWeek"></button>
+            <button className="DayOfTheWeek"></button>
+            <button className="DayOfTheWeek"></button>
+            <button className="DayOfTheWeek"></button>
+            <button className="DayOfTheWeek"></button>
+            <button className="DayOfTheWeek"></button>
+          </Link>
       )}
     })
 
@@ -67,6 +88,7 @@ class Home extends Component {
         <section className="utilityBox">
           <input className="homeSearch" value={this.state.userInput} placeholder="Filter activities" onChange={e => this.handleChange('userInput', e.target.value)}></input>
 
+          <button className='searchButton' onClick={() => {this.filterActivities(this.state.userInput)}}>{this.state.showFiltered ? "Back" : "Search"}</button>
           <button className='addButton'>New Activity</button>
 
           <div className='daysOfTheWeekDisplay'>

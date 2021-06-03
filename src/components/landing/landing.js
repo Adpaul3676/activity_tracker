@@ -11,9 +11,9 @@ class Landing extends Component {
     return (
       <section className="landingFrame">
         <div className="landingBox">
-          <p>New to (app name here)?</p>
+          <p className="boxText">New to (app name here)?</p>
           <Link to="/auth">
-            <p>Get Started</p>
+            <p className="linkText">Get Started</p>
           </Link>
         </div>
       </section>

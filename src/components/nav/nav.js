@@ -27,14 +27,16 @@ class Nav extends Component {
     const habitText = <p className='habitTitleText'>Your Activities</p>
 
     const logInButtons =  
-    <div className='navButtons'>
-      <Link to="/auth">
-        <p>Login</p>
-      </Link>
-      <Link to="/auth">
-        <p>Register</p>
-      </Link>
-    </div>
+    <section className='navRightBox'>
+      <div className='navButtons'>
+        <Link to="/auth">
+         <p>Login</p>
+        </Link>
+        <Link Link to="/auth">
+          <p>Register</p>
+        </Link>
+      </div>
+    </section>
     
     const otherScreenButtons =
     <section className='navRightBox'>
@@ -45,9 +47,9 @@ class Nav extends Component {
         <Link to="/">
           <p onClick={this.logout}>Logout</p>
         </Link>
-      </div>
-      <div className='navUserDisplay'>
-        <p>{this.props.username}</p>
+        <div className='navUserDisplay'>
+          <p>{this.props.username}</p>
+        </div>
       </div>
     </section>
 

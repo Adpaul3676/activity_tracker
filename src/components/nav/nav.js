@@ -29,10 +29,10 @@ class Nav extends Component {
     const logInButtons =  
     <section className='navRightBox'>
       <div className='navButtons'>
-        <Link to="/auth">
+        <Link className="linkDeco" to="/auth">
          <p>Login</p>
         </Link>
-        <Link Link to="/auth">
+        <Link className="linkDeco" Link to="/auth">
           <p>Register</p>
         </Link>
       </div>
@@ -41,10 +41,10 @@ class Nav extends Component {
     const otherScreenButtons =
     <section className='navRightBox'>
       <div className='navButtons'>
-        <Link to="/home">
+        <Link className="linkDeco" to="/home">
           <p>Home</p>
         </Link>
-        <Link to="/">
+        <Link className="linkDeco" to="/">
           <p onClick={this.logout}>Logout</p>
         </Link>
         <div className='navUserDisplay'>

@@ -65,17 +65,24 @@ class Auth extends Component {
       <section className='authContainer'>
         <div className='authBG'>
           <div className='authLoginFrame'>
+            <div className="loginFrameTitle">Login here</div>
           {this.state.errorMsg && <h3 className='auth-error-msg'>{this.state.errorMsg} <span onClick={this.closeErrorMessage}>x</span></h3>}
             <div className='authInputFields'>
-              <input value={this.state.username} onChange={e => this.handleChange('username', e.target.value)} placeholder="username"></input>
-              <input value={this.state.password} onChange={e => this.handleChange('password', e.target.value)} placeholder="password"></input>
+              <div className="inputContainer">
+                <input className="inputFieldSingle" value={this.state.username} onChange={e => this.handleChange('username', e.target.value)} placeholder="Username"></input>
+                  <div className="underline"></div>
+              </div>
+              <div className="inputContainer">
+                <input className="inputFieldSingle" value={this.state.password} onChange={e => this.handleChange('password', e.target.value)} placeholder="Password"></input>
+                <div className="underline"></div>
+              </div>
             </div>
             <div className='authButtons'>
               {/* <Link to="/home"> */}
-                <button onClick={this.login}>Login</button>
+                <button className="loginButtons" onClick={this.login}>Login</button>
               {/* </Link> */}
               {/* <Link to="/home"> */}
-                <button onClick={this.register}>Register</button>
+                <button className="loginButtons" onClick={this.register}>Register</button>
               {/* </Link> */}
             </div>
           </div>

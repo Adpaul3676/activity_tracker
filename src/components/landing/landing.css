@@ -2,6 +2,12 @@
   display: flex;
   justify-content: flex-end;
   /* align-items:flex-end; */
+  position: absolute;
+  width: 100vw;
+  height: 85vh;
+  background-color: #0C0032;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
 }
 
 .landingBox {
@@ -10,18 +16,66 @@
   justify-content: space-around;
   position: relative;
   top: 300px;
-  right: 150px;
-  background-color: grey;
+  right: 100px;
+  background-color: #282828;
   width: 450px;
   height: 200px;
+  border-radius: 15px;
+  box-shadow: #190061 -50px -20px 0px;
 }
 
 .boxText {
   font-size: 1.8em;
+  color: white;
+}
+
+.linkDeco {
+  text-decoration: none;
 }
 
 .linkText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.4em;
   position: relative;
   bottom: 20px;
+  color: white;
+  /* border: solid 1px white; */
+  background-color: #240090;
+  width: 40%;
+  height: 40px;
+  border-radius: 10px;
+  position: relative;
+  left: 80px;
+}
+
+.designBox {
+  width: 500px;
+  height: 200px;
+  background-color: #190061;
+  border-radius: 10px;
+  position: relative;
+  top: -100px;
+  right: 100px;
+}
+
+.designBox2 {
+  width: 300px;
+  height: 200px;
+  background-color: #190061;
+  border-radius: 10px;
+  position: relative;
+  top: 0px;
+  right: -900px;
+}
+
+.designBox3 {
+  width: 300px;
+  height: 200px;
+  background-color: #190061;
+  border-radius: 10px;
+  position: relative;
+  top: 400px;
+  right: 800px;
 }

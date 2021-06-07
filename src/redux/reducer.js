@@ -2,13 +2,15 @@ let initialState = {
   activityPage: false,
   isLoggedIn: false,
   username: null,
-  selectedActivity: null
+  selectedActivity: {
+    title: ''
+  },
+  indView: false
 }
 
 const UPDATE_USER = "UPDATE_USER"
 const UPDATE_PAGE = "UPDATE_PAGE"
 const LOGOUT = "LOGOUT"
-
 const UPDATE_ACTIVITY = "UPDATE_ACTIVITY"
 
 export const updateUser = (userData) => {
@@ -33,10 +35,10 @@ export const logout = () => {
 
 // activity selection and updates
 
-export const updateActivity = (id) => {
+export const updateActivity = (e) => {
   return {
     type: UPDATE_ACTIVITY,
-    payload: id
+    payload: e
   }
 }
 
@@ -45,13 +47,15 @@ export default function reducer (state=initialState, action) {
     case UPDATE_USER:
       // console.log(action.payload)
       const {username} = action.payload
-      return {username, isLoggedIn: true, activityPage: true};
+      return {...state, username, isLoggedIn: true};
     case UPDATE_PAGE:
-      return {activityPage: action.payload};
+      return {...state, activityPage: action.payload.activityPage, indView: action.payload.indView};
     case LOGOUT:
-      return {activityPage: false, isLoggedIn: false, username: null};
+      return {activityPage: false, isLoggedIn: false, username: null, indView: false};
     case UPDATE_ACTIVITY:
-      return {...state, selectedActivity: action.payload}
+      // console.log(action.payload)
+      // console.log()
+      return {...state, selectedActivity: action.payload, indView: true}
     default:
       return state;
   }

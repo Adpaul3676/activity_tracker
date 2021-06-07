@@ -10,7 +10,8 @@ module.exports = {
   createActivity: async (req, res) => {
     const db = req.app.get('db');
     const id = req.session.user.id;
-    console.log(id);
+    console.log (req.session.user.id);
+    // console.log(id);
     const {title} = req.body;
     const newActivities = await db.homeScreen.createActivity([title, id]);
     return res.status(200).send(newActivities);

@@ -13,8 +13,12 @@ class Nav extends Component {
     this.logout = this.logout.bind(this);
   }
 
+  componentDidMount(){
+    console.log(this.props.isLoggedIn)
+  }
+
   logout () {
-    console.log(this.props)
+    // console.log(this.props)
     axios.post("/api/auth/logout")
     .then(res => {
       this.props.logout();
@@ -25,6 +29,7 @@ class Nav extends Component {
   render () {
     const titleText = <p className='titleText'>Activity Tracker</p>
     const habitText = <p className='habitTitleText'>Your Activities</p>
+    const indText = <p className='habitTitleText'>{this.props.indView ? this.props.selectedActivity.title : null}</p>
 
     const logInButtons =  
     <section className='navRightBox'>
@@ -56,7 +61,8 @@ class Nav extends Component {
     return (
       <section className='nav'>
         <div className='titleBox'>
-          {this.props.activityPage ? habitText : titleText}
+          {this.props.activityPage ?  (this.props.indView ? indText : habitText) : titleText}
+          {/* {this.props.selectedActivity ? indText : null} */}
         </div>
         <div className='navToggleBox'>
           {this.props.isLoggedIn ? otherScreenButtons : logInButtons}
@@ -70,7 +76,9 @@ function mapStateToProps (state) {
   return {
     activityPage: state.activityPage,
     isLoggedIn: state.isLoggedIn,
-    username: state.username
+    username: state.username,
+    selectedActivity: state.selectedActivity,
+    indView: state.indView
   }
 }
 

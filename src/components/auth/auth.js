@@ -66,7 +66,7 @@ class Auth extends Component {
         <div className='authBG'>
           <div className='authLoginFrame'>
             <div className="loginFrameTitle">Login here</div>
-          {this.state.errorMsg && <h3 className='auth-error-msg'>{this.state.errorMsg} <span onClick={this.closeErrorMessage}>x</span></h3>}
+          {this.state.errorMsg && <h3 className='auth-error-msg'>{this.state.errorMsg} <span className='auth-error-msg' onClick={this.closeErrorMessage}>x</span></h3>}
             <div className='authInputFields'>
               <div className="inputContainer">
                 <input className="inputFieldSingle" value={this.state.username} onChange={e => this.handleChange('username', e.target.value)} placeholder="Username"></input>

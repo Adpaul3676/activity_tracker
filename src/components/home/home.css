@@ -1,0 +1,131 @@
+.homeFrame {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 85vh;
+  /* overflow: hidden; */
+  background-color: #0C0032;
+  color: white;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+.utilityBox {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  /* height: 75px; */
+  height: 12vh;
+  /* background-color: teal; */
+  position: relative;
+  align-items: center;
+}
+
+.searchAndButtons {
+  width: 25%;
+  height: 50%;
+  /* background-color: teal; */
+  display: flex;
+  position: relative;
+  /* right: 250px; */
+  justify-content: space-evenly;
+}
+
+/* BUTTON CUSTOMIZATION WILL GO HERE */
+
+.daysOfTheWeekDisplay {
+  display: flex;
+  width: 70%;
+  height: 50px;
+  background-color: #282828;
+  border-radius: 15px ;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.5em;
+  box-shadow: #190061 10px 10px 0px;
+}
+
+/* .dayHeader {
+  font-weight: bold;
+} */
+
+/* .dividerLine {
+  background-color: #190061;
+  background-color: white;
+  margin: 20px;
+  width: 90vw;
+  height: 1px;
+  border-radius: 5px;
+  position: relative;
+  right: 75px;
+} */
+
+.accBox {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 73vh;
+  /* overflow: auto; */
+  justify-content: space-evenly;
+  /* background-color: teal; */
+  /* justify-content: space-around; */
+}
+
+.homeActivityBlock {
+  display: flex;
+  justify-content: space-around;
+  /* background-color: aliceblue; */
+}
+
+.mistakeClass {
+  width: 100%;
+  height: 100%;
+  /* background-color: teal; */
+  display: flex;
+  position: relative;
+  /* right: 250px; */
+  justify-content: space-evenly;
+  align-items: center;
+  text-decoration: none;
+}
+
+.specificButtonContainer {
+  width: 25%;
+}
+
+.specificButtons {
+  text-decoration: none;
+  width: 95%;
+  height: 90%;
+}
+
+.dayButtonContainer {
+  display: flex;
+  width: 70%;
+  height: 50px;
+  background-color: #282828;
+  border-radius: 15px ;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.5em;
+  box-shadow: #190061 10px 10px 0px;
+}
+
+.dayOfTheWeek {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4em;
+  position: relative;
+  /* bottom: 20px; */
+  color: white;
+  /* border: solid 1px white; */
+  background-color: rgb(158, 158, 158);
+  width: 5px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  /* position: relative; */
+  /* left: 80px; */
+}

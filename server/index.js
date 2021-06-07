@@ -5,7 +5,7 @@ const express = require('express');
 const authCtrl = require('./controllers/auth');
 const homeCtrl = require('./controllers/home');
 const singleCtrl = require('./controllers/single');
-const compCtrl = require('./controllers/completed')
+const compCtrl = require('./controllers/completed');
 
 const app = express();
 

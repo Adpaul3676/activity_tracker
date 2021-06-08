@@ -14,7 +14,7 @@ class Landing extends Component {
         <div className="designBox2"></div>
         <div className="designBox3"></div>
         <div className="landingBox">
-          <p className="boxText">New to (app name here)?</p>
+          <p className="boxText">New to Activity Tracker?</p>
           <Link className="linkDeco" to="/auth">
             <p className="linkText">Get Started</p>
           </Link>

@@ -20,5 +20,5 @@ id SERIAL PRIMARY KEY,
 title VARCHAR(60),
 activity_id INT REFERENCES activities(activity_id),
 user_id INT REFERENCES users(user_id),
-date TIMESTAMP  
+date VARCHAR(20)  
 );

@@ -44,7 +44,6 @@ app.put('/api/single/updateActivity/:id', singleCtrl.updateActivity);
 app.delete('/api/single/deleteActivity/:id', singleCtrl.deleteActivity);
 
 app.get('/api/completion/getCompleted', compCtrl.getCompleted);
-app.post('/api/completion/createCompleted', compCtrl.createCompleted);
-app.delete('/api/completion/removeCompleted/:id', compCtrl.removeCompleted);
+app.post('/api/completion/createCompleted', compCtrl.toggleCompleted);
 
 app.listen(SERVER_PORT, _ => console.log(`Running on ${SERVER_PORT}`));

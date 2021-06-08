@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+import './activities.css';
+// import axios from 'axios';
 import {connect} from 'react-redux';
 import {updatePage} from '../../redux/reducer';
+import CalendarComp from './calendarComp';
 
 class Activities extends Component {
   constructor(props) {
@@ -10,7 +12,8 @@ class Activities extends Component {
     this.state = {
       pageUpdate: {
         activityPage: true,
-        indView: true
+        indView: true,
+
       }
     }
   }
@@ -20,9 +23,17 @@ class Activities extends Component {
   }
   
   render() {
+
+    // const 
+
     return(
-      <section>
-        
+      <section className='activityViewFrame'>
+        <section className='calendarBox'>
+          <CalendarComp />
+        </section>
+        <section>
+          
+        </section>
       </section>
     )
   }

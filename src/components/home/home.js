@@ -108,13 +108,15 @@ class Home extends Component {
               {e.title}
               </button>
             </Link>
-            <button className="DayOfTheWeek"></button>
-            <button className="DayOfTheWeek"></button>
-            <button className="DayOfTheWeek"></button>
-            <button className="DayOfTheWeek"></button>
-            <button className="DayOfTheWeek"></button>
-            <button className="DayOfTheWeek"></button>
-            <button className="DayOfTheWeek"></button>
+            <section className="dayButtonContainer">
+              <button className="dayOfTheWeek"></button>
+              <button className="dayOfTheWeek"></button>
+              <button className="dayOfTheWeek"></button>
+              <button className="dayOfTheWeek"></button>
+              <button className="dayOfTheWeek"></button>
+              <button className="dayOfTheWeek"></button>
+              <button className="dayOfTheWeek"></button>
+            </section>
           </section>
       )}
     })

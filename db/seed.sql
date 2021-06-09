@@ -12,6 +12,7 @@ phone_number INT
 CREATE TABLE activities (
 activity_id SERIAL PRIMARY KEY,
 title VARCHAR(60),
+description VARCHAR(200),
 user_id INT REFERENCES users(user_id)
 );
 

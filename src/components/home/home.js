@@ -21,7 +21,8 @@ class Home extends Component {
         indView: false
       },
       showAddActivity: false,
-      titleInput: ''
+      titleInput: '',
+      descriptionInput: ''
     }
 
     this.filterActivities = this.filterActivities.bind(this);
@@ -72,9 +73,12 @@ class Home extends Component {
       <section className="addActivityFrame">
         <section className="justForCSS">
           <input className="newAccInput" placeholder="Title here" value={this.state.titleInput} onChange={e => this.handleChange('titleInput', e.target.value)}></input>
+
+          <input className="newAccInput" placeholder="Description here" value={this.state.descriptionInput} onChange={e => { this.handleChange('descriptionInput', e.target.value) }}></input>
+
           <button className="newAccSubmit" onClick={() => { this.createNewActivity(this.state.titleInput) }}>Create</button>
         </section>
-      </section>
+      </section >
 
     let accArr = this.state.accArr.map((e) => {
       if (this.state.showFiltered === false && this.state.showAddActivity === false) {
@@ -89,13 +93,7 @@ class Home extends Component {
               </Link>
             </section>
             <section className="dayButtonContainer">
-              <button className="dayOfTheWeek"></button>
-              <button className="dayOfTheWeek"></button>
-              <button className="dayOfTheWeek"></button>
-              <button className="dayOfTheWeek"></button>
-              <button className="dayOfTheWeek"></button>
-              <button className="dayOfTheWeek"></button>
-              <button className="dayOfTheWeek"></button>
+
             </section>
           </section>
         )
@@ -114,13 +112,7 @@ class Home extends Component {
               </Link>
             </section>
             <section className="dayButtonContainer">
-              <button className="dayOfTheWeek"></button>
-              <button className="dayOfTheWeek"></button>
-              <button className="dayOfTheWeek"></button>
-              <button className="dayOfTheWeek"></button>
-              <button className="dayOfTheWeek"></button>
-              <button className="dayOfTheWeek"></button>
-              <button className="dayOfTheWeek"></button>
+
             </section>
           </section>
         )

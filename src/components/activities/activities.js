@@ -41,7 +41,8 @@ class Activities extends Component {
     this.setState({ value: input })
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     console.log("here");
     console.log(this.state);
     axios.post("/api/message/setReminder", { activity_title: this.state.activityTitle, number: this.state.phone, timeout: this.state.value })
@@ -66,7 +67,7 @@ class Activities extends Component {
           <CalendarComp />
         </section>
         <section className='reminderFrame'>
-          <form onSubmit={() => this.handleSubmit()} className='formFrame'>
+          <form onSubmit={this.handleSubmit} className='formFrame'>
             <div className='actualFormatting'>
               <p>Set a reminder here!</p>
               <input className='utilityInput' placeholder="phone number" onChange={(e) => { this.handlePhoneChange(e.target.value) }}></input>
@@ -85,7 +86,7 @@ class Activities extends Component {
                 <option value={false}>No</option>
                 <option value={true}>Yes</option>
               </select>
-              <button className="submitButton" onClick={this.handleSubmit}>Create</button>
+              <button className="submitButton" type='submit'>Create</button>
             </div>
             <p className="outOfPlace">We'll send you a text at the selected time!</p>
           </form>

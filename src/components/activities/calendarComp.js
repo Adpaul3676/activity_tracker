@@ -25,7 +25,7 @@ function CalendarComp(props) {
   }
 
   useEffect(() => {
-    console.log(props.selectedActivity.activity_id);
+    // console.log(props.selectedActivity.activity_id);
     axios.get('/api/completion/getCompleted', { params: { activity_id: props.selectedActivity.activity_id } })
       .then((res) => {
         // for(let i = 0; i < res.data.length; i++) {
@@ -48,7 +48,7 @@ function CalendarComp(props) {
 
   function onClickDay(value) {
     const date = moment(value).format("MM-DD-YYYY");
-    console.log(value);
+    // console.log(value);
     axios.post('/api/completion/createCompleted', { activity_id: props.selectedActivity.activity_id, title: props.selectedActivity.title, date: date })
       .then((res) => {
         setCompleted(res.data.map(e => e.date))

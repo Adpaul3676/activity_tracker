@@ -2,8 +2,8 @@ module.exports = {
   getCompleted: async (req, res) => {
     const db = req.app.get('db');
     const activity_id = req.query.activity_id;
-    console.log(req.query)
-    console.log(activity_id)
+    // console.log(req.query)
+    // console.log(activity_id)
     const completed = await db.completed.getCompleted([activity_id]);
     // console.log(completed);
     // console.log('Here');

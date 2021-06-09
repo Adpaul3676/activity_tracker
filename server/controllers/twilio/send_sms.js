@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
@@ -10,6 +10,7 @@ module.exports = {
     // const db = req.app.get('db');
     const user = req.session.username;
     const { activity_title, number, timeout } = req.body;
+    // console.log(authToken);
     setTimeout(
       function () {
         // console.log('here')
@@ -19,9 +20,9 @@ module.exports = {
             from: '+18329242976',
             to: `+${number}`
           })
-          .then(message => console.log(message.sid))
+          .then(message => res.status(200).send(message))
+          .catch((err) => res.status(500).send(err));
       }, +timeout
     )
-    return res.status(200);
   }
 }

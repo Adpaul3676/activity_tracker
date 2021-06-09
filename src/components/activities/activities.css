@@ -242,3 +242,8 @@
   right: 550px;
   /* background-color: tomato; */
 }
+
+.submitButton {
+  height: 30px;
+  width: 100px;
+}

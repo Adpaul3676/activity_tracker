@@ -15,34 +15,50 @@ class Activities extends Component {
       pageUpdate: {
         activityPage: true,
         indView: true,
-        value: "1 day",
-        numValue: null
-      }
+        // numValue: null
+      },
+      activityTitle: null,
+      value: "3600000",
+      recurringBool: false,
+      phone: null
     }
+    this.handleBoolChange = this.handleBoolChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handlePhoneChange = this.handlePhoneChange.bind(this);
   }
 
-  handleNumChange(input) {
-    this.setState({ numValue: input })
+  handlePhoneChange(input) {
+    this.setState({ phone: input });
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value })
+  handleBoolChange(input) {
+    this.setState({ recurringBool: input })
   }
 
-  handleSubmit(event) {
-    // axios.post("/api/message/setReminder", { activity_title, })
+  handleChange(input) {
+    // console.log(input);
+    this.setState({ value: input })
+  }
+
+  handleSubmit() {
+    console.log("here");
+    console.log(this.state);
+    axios.post("/api/message/setReminder", { activity_title: this.state.activityTitle, number: this.state.phone, timeout: this.state.value })
   }
 
   componentDidMount() {
     this.props.updatePage(this.state.pageUpdate);
+    axios.get(`/api/single/getActivity/${this.props.selectedActivity.activity_id}`).then((res) => {
+      // console.log(res.data);
+      this.setState({ activityTitle: res.data[0].title })
+    })
   }
 
   render() {
 
-    const options = ['one', 'two', 'three'];
-    const defaultOption = options[0];
+    // const options = ['one', 'two', 'three'];
+    // const defaultOption = options[0];
 
     return (
       <section className='activityViewFrame' >
@@ -50,11 +66,11 @@ class Activities extends Component {
           <CalendarComp />
         </section>
         <section className='reminderFrame'>
-          <form onSubmit={this.handleSubmit} className='formFrame'>
+          <form onSubmit={() => this.handleSubmit()} className='formFrame'>
             <div className='actualFormatting'>
               <p>Set a reminder here!</p>
-              <input className='utilityInput' placeholder="phone number"></input>
-              <select className='utilityStuff' value={this.state.value} onChange={this.handleChange}>
+              <input className='utilityInput' placeholder="phone number" onChange={(e) => { this.handlePhoneChange(e.target.value) }}></input>
+              <select className='utilityStuff' value={this.state.value} onChange={(e) => { this.handleChange(e.target.value) }}>
                 <option value="3600000">1 hour</option>
                 <option value="21600000">6 hours</option>
                 <option value="43200000">12 hours</option>
@@ -65,10 +81,11 @@ class Activities extends Component {
               </select>
               <p>Recurring Reminder?</p>
               {/* <input></input> */}
-              <select className='utilityStuff' value={this.state.value} onChange={this.handleChange}>
-                <option value="No">No</option>
-                <option value="Yes">Yes</option>
+              <select className='utilityStuff' value={this.state.recurringBool} onChange={(e) => { this.handleBoolChange(e.target.value) }}>
+                <option value={false}>No</option>
+                <option value={true}>Yes</option>
               </select>
+              <button className="submitButton" onClick={this.handleSubmit}>Create</button>
             </div>
             <p className="outOfPlace">We'll send you a text at the selected time!</p>
           </form>

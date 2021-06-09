@@ -140,6 +140,8 @@
   flex-direction: row;
   width: 100vw;
   justify-content: flex-start;
+  position: relative;
+  top: 40px;
   /* background-color: aliceblue; */
 }
 
@@ -185,4 +187,58 @@
 
 .dateDisplay {
   width: 100px;
+}
+
+.reminderFrame {
+  display: flex;
+  color: white;
+  width: 100vw;
+  height: 200px;
+  /* background-color: teal; */
+}
+
+.formFrame {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  /* background-color:tomato; */
+  /* justify-content: space-between; */
+  position: relative;
+  top: 50px;
+}
+
+.actualFormatting {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* background-color: thistle; */
+  width: 700px;
+  position: relative;
+  left: 100px;
+}
+
+.utilityStuff {
+  height: 30px;
+  width: 100px;
+}
+
+.utilityInput {
+  height: 24px;
+  width: 100px;
+  background-color: transparent;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  position: relative;
+  /* right: 30px; */
+  color: white;
+}
+
+.outOfPlace {
+  height: 10px;
+  position: relative;
+  top: 150px;
+  right: 550px;
+  /* background-color: tomato; */
 }

@@ -6,25 +6,26 @@ const authCtrl = require('./controllers/auth');
 const homeCtrl = require('./controllers/home');
 const singleCtrl = require('./controllers/single');
 const compCtrl = require('./controllers/completed');
+const msgCtrl = require('./controllers/twilio/send_sms');
 
 const app = express();
 
 app.use(express.json());
 
-const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
+const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 
 app.use(
   session({
     resave: false,
     saveUninitialized: false,
     secret: SESSION_SECRET,
-    cookie: {maxAge: 86400000}
+    cookie: { maxAge: 86400000 }
   })
 )
 
 massive({
   connectionString: CONNECTION_STRING,
-  ssl: {rejectUnauthorized: false}
+  ssl: { rejectUnauthorized: false }
 }).then(db => {
   app.set('db', db);
   console.log('Database connection established')
@@ -33,7 +34,7 @@ massive({
 app.post('/api/auth/register', authCtrl.register);
 app.post('/api/auth/login', authCtrl.login);
 app.get('/api/auth/me', authCtrl.getUser);
-app.post('/api/auth/logout', authCtrl.logout);  
+app.post('/api/auth/logout', authCtrl.logout);
 
 app.get('/api/home/activities', homeCtrl.getActivities);
 app.post('/api/home/createActivity', homeCtrl.createActivity);
@@ -45,5 +46,7 @@ app.delete('/api/single/deleteActivity/:id', singleCtrl.deleteActivity);
 
 app.get('/api/completion/getCompleted', compCtrl.getCompleted);
 app.post('/api/completion/createCompleted', compCtrl.toggleCompleted);
+
+app.post('/api/message/setReminder', msgCtrl.sendReminder);
 
 app.listen(SERVER_PORT, _ => console.log(`Running on ${SERVER_PORT}`));

@@ -31,6 +31,7 @@
 
 .linkDeco {
   text-decoration: none;
+  
 }
 
 .linkText {
@@ -40,14 +41,18 @@
   font-size: 1.4em;
   position: relative;
   bottom: 20px;
-  color: white;
+  /* color: white; */
   /* border: solid 1px white; */
-  background-color: #240090;
+  /* background-color: #240090; */
   width: 40%;
   height: 40px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   position: relative;
   left: 80px;
+  background-color: transparent;
+  border: solid 1px white;
+  border-radius: 5px;
+  color: white;
 }
 
 .designBox {
@@ -78,4 +83,8 @@
   position: relative;
   top: 400px;
   right: 800px;
+}
+
+.linkText:hover {
+  background-color: rgba(128, 128, 128, 0.514);
 }

@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './nav.css';
-import {connect} from 'react-redux';
-import {logout} from '../../redux/reducer';
-import {withRouter} from "react-router";
+import { connect } from 'react-redux';
+import { logout } from '../../redux/reducer';
+import { withRouter } from "react-router";
 
 class Nav extends Component {
   constructor(props) {
@@ -13,55 +13,55 @@ class Nav extends Component {
     this.logout = this.logout.bind(this);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     // console.log(this.props.isLoggedIn)
   }
 
-  logout () {
+  logout() {
     // console.log(this.props)
     axios.post("/api/auth/logout")
-    .then(res => {
-      this.props.logout();
-      this.props.history.push("/")
-    })
+      .then(res => {
+        this.props.logout();
+        this.props.history.push("/")
+      })
   }
 
-  render () {
+  render() {
     const titleText = <p className='titleText'>Activity Tracker</p>
     const habitText = <p className='habitTitleText'>Your Activities</p>
     const indText = <p className='habitTitleText'>{this.props.indView ? this.props.selectedActivity.title : null}</p>
 
-    const logInButtons =  
-    <section className='navRightBox'>
-      <div className='navButtons'>
-        <Link className="linkDeco" to="/auth">
-         <p>Login</p>
-        </Link>
-        <Link className="linkDeco" Link to="/auth">
-          <p>Register</p>
-        </Link>
-      </div>
-    </section>
-    
-    const otherScreenButtons =
-    <section className='navRightBox'>
-      <div className='navButtons'>
-        <Link className="linkDeco" to="/home">
-          <p>Home</p>
-        </Link>
-        <Link className="linkDeco" to="/">
-          <p onClick={this.logout}>Logout</p>
-        </Link>
-        <div className='navUserDisplay'>
-          <p>{this.props.username}</p>
+    const logInButtons =
+      <section className='navRightBox'>
+        <div className='navButtons'>
+          <Link className="linkDeco" to="/auth">
+            <p>Login</p>
+          </Link>
+          <Link className="linkDeco" Link to="/auth">
+            <p>Register</p>
+          </Link>
         </div>
-      </div>
-    </section>
+      </section>
+
+    const otherScreenButtons =
+      <section className='navRightBox'>
+        <div className='navButtons'>
+          <Link className="linkDeco" to="/home">
+            <p>Home</p>
+          </Link>
+          <Link className="linkDeco" to="/">
+            <p onClick={this.logout}>Logout</p>
+          </Link>
+          <div className='navUserDisplay'>
+            <p className='usernameBox'>{this.props.username}</p>
+          </div>
+        </div>
+      </section>
 
     return (
       <section className='nav'>
         <div className='titleBox'>
-          {this.props.activityPage ?  (this.props.indView ? indText : habitText) : titleText}
+          {this.props.activityPage ? (this.props.indView ? indText : habitText) : titleText}
           {/* {this.props.selectedActivity ? indText : null} */}
         </div>
         <div className='navToggleBox'>
@@ -72,7 +72,7 @@ class Nav extends Component {
   }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     activityPage: state.activityPage,
     isLoggedIn: state.isLoggedIn,
@@ -82,4 +82,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default withRouter(connect(mapStateToProps, {logout})(Nav));
+export default withRouter(connect(mapStateToProps, { logout })(Nav));

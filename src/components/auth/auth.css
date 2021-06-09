@@ -97,11 +97,19 @@
 
 .loginButtons {
   border: none;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   width: 120px;
   height: 30px;
-  color: rgb(255, 255, 255);
-  background-color: #240090;
+  /* color: rgb(255, 255, 255); */
+  /* background-color: #240090; */
   /* position: relative; */
   /* bottom: 20px; */
+  background-color: transparent;
+  border: solid 1px white;
+  border-radius: 5px;
+  color: white;
+}
+
+.loginButtons:hover {
+  background-color: rgba(128, 128, 128, 0.514);
 }

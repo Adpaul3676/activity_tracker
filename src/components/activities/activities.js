@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './activities.css';
 // import axios from 'axios';
-import {connect} from 'react-redux';
-import {updatePage} from '../../redux/reducer';
+import { connect } from 'react-redux';
+import { updatePage } from '../../redux/reducer';
 import CalendarComp from './calendarComp';
 
 class Activities extends Component {
@@ -18,25 +18,25 @@ class Activities extends Component {
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.updatePage(this.state.pageUpdate);
   }
-  
+
   render() {
 
     // const 
 
-    return(
+    return (
       <section className='activityViewFrame'>
         <section className='calendarBox'>
           <CalendarComp />
         </section>
         <section>
-          
+
         </section>
       </section>
     )
   }
 }
 
-export default connect(null, {updatePage})(Activities);
+export default connect(null, { updatePage })(Activities);

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import moment from 'moment';
 import axios from 'axios';
+import './activities.css';
 import { connect } from 'react-redux';
 
 function CalendarComp(props) {
@@ -64,7 +65,7 @@ function CalendarComp(props) {
   // }
 
   return (
-    <section>
+    <section className='calendarFrame'>
       <Calendar
         value={dateState}
         onChange={changeDate}
@@ -72,17 +73,19 @@ function CalendarComp(props) {
         onClickDay={onClickDay}
       // tileContent={tileContent}
       />
-      <section>
-        <p>Completed Dates:</p>
-        {
-          completed.map((e) => {
-            // console.log(completed)
-            return (
-              <section className="dateDisplay" key={`${e}`}>
-                <p>{e}</p>
-              </section>
-            )
-          })}
+      <section className='placeHolder'>
+        <p className="datesCompletedTitle">Days Completed:</p>
+        <div className="datesCompleted">
+          {
+            completed.map((e) => {
+              // console.log(completed)
+              return (
+                <section className="dateDisplay" key={`${e}`}>
+                  <p>{e}</p>
+                </section>
+              )
+            })}
+        </div>
       </section>
     </section>
   )

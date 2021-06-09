@@ -39,11 +39,16 @@
   width: 70%;
   height: 50px;
   background-color: #282828;
-  border-radius: 15px ;
+  /* border-radius: 15px ; */
   justify-content: space-around;
   align-items: center;
   font-size: 1.5em;
-  box-shadow: #190061 10px 10px 0px;
+  box-shadow: #190061 5px 5px 0px;
+  /* background-color: transparent; */
+  /* border: solid 1px white; */
+  border-radius: 5px;
+  color: white;
+  
 }
 
 /* .dayHeader {
@@ -95,7 +100,10 @@
 }
 
 .specificButtons {
-  text-decoration: none;
+  background-color: transparent;
+  border: solid 1px white;
+  border-radius: 5px;
+  color: white;
   width: 95%;
   height: 90%;
 }
@@ -105,11 +113,11 @@
   width: 70%;
   height: 50px;
   background-color: #282828;
-  border-radius: 15px ;
+  border-radius: 5px ;
   justify-content: space-around;
   align-items: center;
   font-size: 1.5em;
-  box-shadow: #190061 10px 10px 0px;
+  box-shadow: #190061 5px 5px 0px;
 }
 
 .dayOfTheWeek {
@@ -121,11 +129,90 @@
   /* bottom: 20px; */
   color: white;
   /* border: solid 1px white; */
-  background-color: rgb(158, 158, 158);
+  background-color: white;
   width: 5px;
   height: 10px;
   border-radius: 2px;
   border: none;
   /* position: relative; */
   /* left: 80px; */
+}
+
+.homeSearch {
+  background-color: transparent;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  position: relative;
+  /* right: 30px; */
+  color: white;
+}
+
+.searchButton {
+  background-color: transparent;
+  border: solid 1px white;
+  border-radius: 5px;
+  color: white;
+}
+
+.addButton {
+  background-color: transparent;
+  border: solid 1px white;
+  border-radius: 5px;
+  color: white;
+}
+
+.specificButtons:hover {
+  background-color: rgba(128, 128, 128, 0.514);
+}
+
+.searchButton:hover {
+  background-color: rgba(128, 128, 128, 0.514);
+}
+
+.addButton:hover {
+  background-color: rgba(128, 128, 128, 0.514);
+}
+
+.addActivityFrame {
+  width: 100vw;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+
+  /* background-color: tomato; */
+}
+
+.justForCSS {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.newAccInput {
+  background-color: transparent;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  position: relative;
+  /* right: 30px; */
+  color: white;
+  width: 200px;
+  height: 40px;
+}
+
+.newAccSubmit {
+  background-color: transparent;
+  border: solid 1px white;
+  border-radius: 5px;
+  color: white;
+  width: 100px;
+  height: 40px;
+}
+
+.newAccSubmit:hover {
+  background-color: rgba(128, 128, 128, 0.514);
 }

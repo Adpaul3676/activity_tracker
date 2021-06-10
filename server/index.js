@@ -48,5 +48,6 @@ app.get('/api/completion/getCompleted', compCtrl.getCompleted);
 app.post('/api/completion/createCompleted', compCtrl.toggleCompleted);
 
 app.post('/api/message/setReminder', msgCtrl.sendReminder);
+app.post('/api/message/setReminderEmail', msgCtrl.sendEmailReminder);
 
 app.listen(SERVER_PORT, _ => console.log(`Running on ${SERVER_PORT}`));

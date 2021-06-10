@@ -25,6 +25,8 @@
 }
 
 .boxText {
+  position: relative;
+  top: 15px;
   font-size: 1.8em;
   color: white;
 }
@@ -56,6 +58,7 @@
   /* border-radius: 10px; */
   position: relative;
   left: 80px;
+  right: 0px;
   background-color: transparent;
   border: solid 1px white;
   border-radius: 5px;
@@ -94,4 +97,71 @@
 
 .linkText:hover {
   background-color: rgba(128, 128, 128, 0.514);
+}
+
+@media (max-width: 1000px) {
+  .landingBox {
+    width: 500px;
+    height: 100px;
+    top: 400px;
+    right: 30px;
+    box-sizing: border-box;
+  }
+
+  .boxText {
+    font-size: 1em;
+    position: relative;
+    top: 10px;
+    left: 3px;
+  }
+
+  .linkDeco {
+    /* width: 100px; */
+    height: 50px;
+    /* background-color: cyan; */
+    justify-content: center;
+  }
+
+  .linkText {
+    width: 80px;
+    height: 30px;
+    left: 0px;
+    bottom: 0px;
+    /* right: 50px; */
+    font-size: .8em;
+  }
+}
+
+@media (max-width: 400px) {
+  .landingBox {
+    width: 1000px;
+    height: 100px;
+    top: 400px;
+    right: 30px;
+    box-sizing: border-box;
+  }
+
+  .boxText {
+    font-size: 1em;
+    position: relative;
+    top: 10px;
+    left: 3px;
+  }
+
+  .linkDeco {
+    /* width: 100px; */
+    height: 50px;
+    /* background-color: cyan; */
+    justify-content: center;
+  }
+
+  .linkText {
+    width: 80px;
+    height: 30px;
+    left: 0px;
+    bottom: 0px;
+    /* right: 50px; */
+    font-size: .8em;
+  }
+
 }

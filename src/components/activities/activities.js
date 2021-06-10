@@ -72,6 +72,7 @@ class Activities extends Component {
               <p>Set a reminder here!</p>
               <input className='utilityInput' placeholder="phone number" onChange={(e) => { this.handlePhoneChange(e.target.value) }}></input>
               <select className='utilityStuff' value={this.state.value} onChange={(e) => { this.handleChange(e.target.value) }}>
+                <option value="1000">1 second (for testing)</option>
                 <option value="3600000">1 hour</option>
                 <option value="21600000">6 hours</option>
                 <option value="43200000">12 hours</option>
@@ -88,7 +89,7 @@ class Activities extends Component {
               </select>
               <button className="submitButton" type='submit'>Create</button>
             </div>
-            <p className="outOfPlace">We'll send you a text at the selected time!</p>
+            <p className="outOfPlace">We'll send you a message at the selected time!</p>
           </form>
         </section>
       </section>

@@ -6,6 +6,7 @@ const client = require('twilio')(accountSid, authToken);
 
 module.exports = {
   sendReminder: (req, res) => {
+    console.log(client);
     // console.log('here')
     // const db = req.app.get('db');
     const user = req.session.username;
@@ -24,5 +25,9 @@ module.exports = {
           .catch((err) => res.status(500).send(err));
       }, +timeout
     )
+  },
+
+  sendEmailReminder: (req, res) => {
+
   }
 }

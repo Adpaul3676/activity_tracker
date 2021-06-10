@@ -113,3 +113,102 @@
 .loginButtons:hover {
   background-color: rgba(128, 128, 128, 0.514);
 }
+
+@media (max-width: 1000px) {
+
+  .authLoginFrame {
+    width: 400px;
+    height: 350px;
+    box-shadow: #190061 10px 10px 0px;
+  }
+
+  .loginFrameTitle {
+    font-size: 1.7em;
+    /* background-color: cyan; */
+    display: flex;
+    color: white;
+    /* font-size: 2em; */
+    justify-content: flex-start;
+    width: 200px;
+    position: relative;
+    bottom: 60px;
+    left: -40px;
+    right: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .authInputFields {
+    /* background-color: cyan; */
+    width: 80%;
+    left: 65px;
+    bottom: 60px;
+  }
+
+  .inputFieldSingle {
+    width: 200px;
+    right: 10px;
+    /* background-color: cyan; */
+  }
+
+  .underline {
+    width: 225px;
+    /* left: 0px; */
+    right: 20px;
+  }
+
+  .authButtons {
+    /* background-color: cyan; */
+    width: 300px;
+    top: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .authLoginFrame {
+    width: 300px;
+    height: 300px;
+    top: 150px;
+    box-shadow: #190061 10px 10px 0px;
+  }
+  
+  .loginFrameTitle {
+    font-size: 1.5em;
+    /* background-color: cyan; */
+    display: flex;
+    color: white;
+    /* font-size: 2em; */
+    justify-content: flex-start;
+    width: 200px;
+    position: relative;
+    bottom: 50px;
+    left: -10px;
+    right: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .authInputFields {
+    /* background-color: cyan; */
+    width: 80%;
+    left: 25px;
+    bottom: 55px;
+  }
+  
+  .inputFieldSingle {
+    width: 200px;
+    right: 10px;
+    /* background-color: cyan; */
+  }
+  
+  .underline {
+    width: 225px;
+    /* left: 0px; */
+    right: 20px;
+  }
+  
+  .authButtons {
+    /* background-color: cyan; */
+    width: 300px;
+    top: 20px;
+  }
+
+}

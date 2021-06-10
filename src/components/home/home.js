@@ -49,17 +49,18 @@ class Home extends Component {
     this.setState({ showAddActivity: !this.state.showAddActivity });
   }
 
-  createNewActivity(input) {
-    axios.post("/api/home/createActivity", { title: input })
+  createNewActivity(input, desc) {
+    axios.post("/api/home/createActivity", { title: input, description: desc })
       .then(res => {
-        this.setState({ accArr: res.data, showAddActivity: !this.state.showAddActivity })
+        this.setState({ accArr: res.data, showAddActivity: !this.state.showAddActivity, titleInput: '', descriptionInput: '' })
       }).catch(err => { console.log(err) });
   }
 
   filterActivities(input) {
     this.setState({ showFiltered: !this.state.showFiltered })
     let filtered = this.state.accArr.filter((e) => {
-      if (e.title.toUpperCase().includes(input.toUpperCase()) === true) {
+      console.log(this.state.accArr)
+      if (e.title.toUpperCase().includes(input.toUpperCase()) === true || e.description.toUpperCase().includes(input.toUpperCase())) {
         return (e)
       }
     })
@@ -76,7 +77,7 @@ class Home extends Component {
 
           <input className="newAccInput" placeholder="Description here" value={this.state.descriptionInput} onChange={e => { this.handleChange('descriptionInput', e.target.value) }}></input>
 
-          <button className="newAccSubmit" onClick={() => { this.createNewActivity(this.state.titleInput) }}>Create</button>
+          <button className="newAccSubmit" onClick={() => { this.createNewActivity(this.state.titleInput, this.state.descriptionInput) }}>Create</button>
         </section>
       </section >
 
@@ -93,7 +94,7 @@ class Home extends Component {
               </Link>
             </section>
             <section className="dayButtonContainer">
-
+              <div className='descriptionBox'>{e.description}</div>
             </section>
           </section>
         )
@@ -112,7 +113,7 @@ class Home extends Component {
               </Link>
             </section>
             <section className="dayButtonContainer">
-
+              <div className='descriptionBox'>{e.description}</div>
             </section>
           </section>
         )
@@ -131,13 +132,8 @@ class Home extends Component {
           </section>
 
           <div className='daysOfTheWeekDisplay'>
-            <div className='dayHeader'>Sun</div>
-            <div className='dayHeader'>Mon</div>
-            <div className='dayHeader'>Tue</div>
-            <div className='dayHeader'>Wed</div>
-            <div className='dayHeader'>Thu</div>
-            <div className='dayHeader'>Fri</div>
-            <div className='dayHeader'>Sat</div>
+            {/* PUT TITLE HERE */}
+            <p className='descriptionBox'>The description for each activity will appear in the box next to it</p>
           </div>
         </section>
         <div className='dividerLine'></div>

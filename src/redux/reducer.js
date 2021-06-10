@@ -30,7 +30,7 @@ export const updatePage = (bool) => {
 }
 
 export const logout = () => {
-  return {type: LOGOUT}
+  return { type: LOGOUT }
 }
 
 // activity selection and updates
@@ -42,20 +42,20 @@ export const updateActivity = (e) => {
   }
 }
 
-export default function reducer (state=initialState, action) {
+export default function reducer(state = initialState, action) {
   switch (action.type) {
     case UPDATE_USER:
       // console.log(action.payload)
-      const {username} = action.payload
-      return {...state, username, isLoggedIn: true};
+      const { username } = action.payload
+      return { ...state, username, isLoggedIn: true };
     case UPDATE_PAGE:
-      return {...state, activityPage: action.payload.activityPage, indView: action.payload.indView};
+      return { ...state, activityPage: action.payload.activityPage, indView: action.payload.indView };
     case LOGOUT:
-      return {activityPage: false, isLoggedIn: false, username: null, indView: false};
+      return { activityPage: false, isLoggedIn: false, username: null, indView: false };
     case UPDATE_ACTIVITY:
       // console.log(action.payload)
       // console.log()
-      return {...state, selectedActivity: action.payload, indView: true}
+      return { ...state, selectedActivity: action.payload, indView: true }
     default:
       return state;
   }

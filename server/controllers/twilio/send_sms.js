@@ -3,6 +3,8 @@
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
+const EMAIL = process.env.EMAIL;
+const EMAIL_PASS = process.env.EMAIL_PASS;
 
 module.exports = {
   sendReminder: (req, res) => {
@@ -43,18 +45,18 @@ module.exports = {
 
           // create reusable transporter object using the default SMTP transport
           let transporter = nodemailer.createTransport({
-            host: "smtp.ethereal.email",
-            port: 587,
-            secure: false, // true for 465, false for other ports
+            service: "Gmail",
+            // port: 4000,
+            // secure: false, // true for 465, false for other ports
             auth: {
-              user: testAccount.user, // generated ethereal user
-              pass: testAccount.pass, // generated ethereal password
+              user: `${EMAIL}`, // generated ethereal user
+              pass: `${EMAIL_PASS}`, // generated ethereal password
             },
           });
 
           // send mail with defined transport object
           let info = await transporter.sendMail({
-            from: '"Activity Tracker" <foo@example.com>', // sender address
+            from: '"Activity Tracker" <adpaul3676@gmail.com>', // sender address
             to: `${email}`, // list of receivers
             subject: "Friendly Reminder!", // Subject line
             text: `Hey ${user}! This is your reminder to do ${activity_title} today!`, // plain text body

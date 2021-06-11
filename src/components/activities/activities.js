@@ -20,12 +20,24 @@ class Activities extends Component {
       activityTitle: null,
       value: "3600000",
       recurringBool: false,
-      phone: null
+      phone: null,
+      email: null,
+      toggleType: false
     }
     this.handleBoolChange = this.handleBoolChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePhoneChange = this.handlePhoneChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handleToggleChange = this.handleToggleChange.bind(this);
+  }
+
+  handleToggleChange(input) {
+    this.setState({ toggleType: input });
+  }
+
+  handleEmailChange(input) {
+    this.setState({ email: input });
   }
 
   handlePhoneChange(input) {
@@ -43,9 +55,13 @@ class Activities extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log("here");
-    console.log(this.state);
-    axios.post("/api/message/setReminder", { activity_title: this.state.activityTitle, number: this.state.phone, timeout: this.state.value })
+    // console.log("here");
+    // console.log(this.state);
+    if (this.state.toggleType === false) {
+      axios.post("/api/message/setReminder", { activity_title: this.state.activityTitle, number: this.state.phone, timeout: this.state.value })
+    } else {
+      axios.post("/api/message/setReminderEmail", { activity_title: this.state.activityTitle, email: this.state.email, timeout: this.state.value })
+    }
   }
 
   componentDidMount() {
@@ -71,6 +87,8 @@ class Activities extends Component {
             <div className='actualFormatting'>
               <p>Set a reminder here!</p>
               <input className='utilityInput' placeholder="phone number" onChange={(e) => { this.handlePhoneChange(e.target.value) }}></input>
+              <p>or</p>
+              <input className='utilityInput' placeholder="email" onChange={(e) => { this.handleEmailChange(e.target.value) }}></input>
               <select className='utilityStuff' value={this.state.value} onChange={(e) => { this.handleChange(e.target.value) }}>
                 <option value="1000">1 second (for testing)</option>
                 <option value="3600000">1 hour</option>
@@ -80,6 +98,10 @@ class Activities extends Component {
                 <option value="172800000">2 days</option>
                 <option value="259200000">3 days</option>
                 <option value=" 604800000">1 week</option>
+              </select>
+              <select className='utilityStuff' value={this.state.toggleType} onChange={(e) => { this.handleToggleChange(e.target.value) }}>
+                <option value={false}>SMS</option>
+                <option value={true}>Email</option>
               </select>
               <p>Recurring Reminder?</p>
               {/* <input></input> */}

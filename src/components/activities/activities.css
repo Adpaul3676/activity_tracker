@@ -212,7 +212,7 @@
   align-items: center;
   justify-content: space-evenly;
   /* background-color: thistle; */
-  width: 900px;
+  width: 1000px;
   position: relative;
   left: 100px;
 }
@@ -239,7 +239,7 @@
   height: 10px;
   position: relative;
   top: 150px;
-  right: 750px;
+  right: 850px;
   /* background-color: tomato; */
 }
 

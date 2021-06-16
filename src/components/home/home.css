@@ -244,6 +244,8 @@
 
 .descriptionBox {
   font-size: .8em;
+  width: 90%;
+  /* background-color: aliceblue; */
 }
 
 @media (max-width: 1000px) {
@@ -358,4 +360,13 @@
     width: 60px;
     font-size: .8em;
   }
+}
+
+.deleteButton {
+  background-color: transparent;
+  border: solid 1px white;
+  border-radius: 5px;
+  color: white;
+  width: 20px;
+  height: 20px;
 }

@@ -29,6 +29,7 @@ class Home extends Component {
     this.toggleActivityView = this.toggleActivityView.bind(this);
     this.createNewActivity = this.createNewActivity.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.deleteFromActivities = this.deleteFromActivities.bind(this);
   }
 
   handleChange(prop, val) {
@@ -59,13 +60,19 @@ class Home extends Component {
   filterActivities(input) {
     this.setState({ showFiltered: !this.state.showFiltered })
     let filtered = this.state.accArr.filter((e) => {
-      console.log(this.state.accArr)
+      // console.log(this.state.accArr)
       if (e.title.toUpperCase().includes(input.toUpperCase()) === true || e.description.toUpperCase().includes(input.toUpperCase())) {
         return (e)
       }
     })
     this.setState({ filteredAct: filtered })
     this.setState({ userInput: '' })
+  }
+
+  deleteFromActivities(id) {
+    axios.delete(`/api/home/deleteActivity/${id}`)
+      .then((res) => this.setState({ accArr: res.data }))
+      .catch((err) => (console.log(err)))
   }
 
   render() {
@@ -95,6 +102,7 @@ class Home extends Component {
             </section>
             <section className="dayButtonContainer">
               <div className='descriptionBox'>{e.description}</div>
+              <button className='deleteButton' onClick={() => { this.deleteFromActivities(e.activity_id) }}>x</button>
             </section>
           </section>
         )
@@ -114,6 +122,7 @@ class Home extends Component {
             </section>
             <section className="dayButtonContainer">
               <div className='descriptionBox'>{e.description}</div>
+              <button className='deleteButton' onClick={() => { this.deleteFromActivities(e.activity_id) }}>x</button>
             </section>
           </section>
         )
